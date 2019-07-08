@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VIews" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время: 40 сек." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6En-i9-mLy">
+                                <rect key="frame" x="16" y="56" width="119" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="40" maximumValue="100" stepValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="dCe-5Z-z22">
+                                <rect key="frame" x="304" y="52" width="94" height="29"/>
+                                <connections>
+                                    <action selector="stepperChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="BRR-rZ-wzK"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Счет: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UU8-6d-KzO">
+                                <rect key="frame" x="178" y="841" width="58" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbf-t9-i32" customClass="GameFieldView" customModule="VIews" customModuleProvider="target">
+                                <rect key="frame" x="16" y="127" width="382" height="706"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shapeSize">
+                                        <size key="value" width="80" height="80"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeT-wt-Odm">
+                                <rect key="frame" x="157" y="89" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47934520244598389" blue="0.99908632040023804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Fth-dO-a5e"/>
+                                </constraints>
+                                <state key="normal" title="Начать">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NCb-7W-VkU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dCe-5Z-z22" secondAttribute="trailing" constant="16" id="7vk-UZ-1bD"/>
+                            <constraint firstItem="dCe-5Z-z22" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6En-i9-mLy" secondAttribute="trailing" id="AgU-c8-gwG"/>
+                            <constraint firstItem="UU8-6d-KzO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Bsy-n8-kqh"/>
+                            <constraint firstItem="HeT-wt-Odm" firstAttribute="top" secondItem="dCe-5Z-z22" secondAttribute="bottom" constant="8" id="D9E-Yy-EN3"/>
+                            <constraint firstItem="pbf-t9-i32" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="H9Z-SU-Kx0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pbf-t9-i32" secondAttribute="trailing" constant="16" id="Oh3-a4-8YZ"/>
+                            <constraint firstItem="UU8-6d-KzO" firstAttribute="top" secondItem="pbf-t9-i32" secondAttribute="bottom" constant="8" id="Ok3-eo-8z8"/>
+                            <constraint firstItem="6En-i9-mLy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="PK1-M3-RPx"/>
+                            <constraint firstItem="pbf-t9-i32" firstAttribute="top" secondItem="HeT-wt-Odm" secondAttribute="bottom" constant="8" id="Uul-jH-7dw"/>
+                            <constraint firstItem="HeT-wt-Odm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZL7-c2-i6U"/>
+                            <constraint firstItem="6En-i9-mLy" firstAttribute="centerY" secondItem="dCe-5Z-z22" secondAttribute="centerY" id="uxg-FF-aQ8"/>
+                            <constraint firstItem="dCe-5Z-z22" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="wSu-bD-eQ1"/>
+                            <constraint firstItem="UU8-6d-KzO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ywX-43-ZyU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="actionButton" destination="HeT-wt-Odm" id="BUS-2u-xRh"/>
+                        <outlet property="gameFieldView" destination="pbf-t9-i32" id="3F1-iD-eB5"/>
+                        <outlet property="scoreLabel" destination="UU8-6d-KzO" id="nGh-0o-qB3"/>
+                        <outlet property="stepper" destination="dCe-5Z-z22" id="FGH-LM-5rs"/>
+                        <outlet property="timeLabel" destination="6En-i9-mLy" id="Ba8-BP-OD8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
+        </scene>
+    </scenes>
+</document>
