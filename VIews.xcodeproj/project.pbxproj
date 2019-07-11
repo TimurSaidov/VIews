@@ -13,6 +13,8 @@
 		3975296B22D39EFF00EF1A0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3975296A22D39EFF00EF1A0A /* Assets.xcassets */; };
 		3975296E22D39EFF00EF1A0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3975296C22D39EFF00EF1A0A /* LaunchScreen.storyboard */; };
 		3975297622D3CFF000EF1A0A /* GameFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3975297522D3CFF000EF1A0A /* GameFieldView.swift */; };
+		39B3B36022D7A61D00EB423F /* GameControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B3B35F22D7A61D00EB423F /* GameControlView.xib */; };
+		39B3B36222D7A7F200EB423F /* GameControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3B36122D7A7F200EB423F /* GameControlView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		3975296D22D39EFF00EF1A0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3975296F22D39EFF00EF1A0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3975297522D3CFF000EF1A0A /* GameFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFieldView.swift; sourceTree = "<group>"; };
+		39B3B35F22D7A61D00EB423F /* GameControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameControlView.xib; sourceTree = "<group>"; };
+		39B3B36122D7A7F200EB423F /* GameControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		394EF5C322D7B08700856CB5 /* Game Control View */ = {
+			isa = PBXGroup;
+			children = (
+				39B3B36122D7A7F200EB423F /* GameControlView.swift */,
+				39B3B35F22D7A61D00EB423F /* GameControlView.xib */,
+			);
+			path = "Game Control View";
+			sourceTree = "<group>";
+		};
 		3975295722D39EFD00EF1A0A = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +72,7 @@
 				3975296322D39EFD00EF1A0A /* AppDelegate.swift */,
 				3975297522D3CFF000EF1A0A /* GameFieldView.swift */,
 				3975296522D39EFD00EF1A0A /* ViewController.swift */,
+				394EF5C322D7B08700856CB5 /* Game Control View */,
 				3975296722D39EFD00EF1A0A /* Main.storyboard */,
 				3975296A22D39EFF00EF1A0A /* Assets.xcassets */,
 				3975296C22D39EFF00EF1A0A /* LaunchScreen.storyboard */,
@@ -127,6 +141,7 @@
 			files = (
 				3975296E22D39EFF00EF1A0A /* LaunchScreen.storyboard in Resources */,
 				3975296B22D39EFF00EF1A0A /* Assets.xcassets in Resources */,
+				39B3B36022D7A61D00EB423F /* GameControlView.xib in Resources */,
 				3975296922D39EFD00EF1A0A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +155,7 @@
 			files = (
 				3975297622D3CFF000EF1A0A /* GameFieldView.swift in Sources */,
 				3975296622D39EFD00EF1A0A /* ViewController.swift in Sources */,
+				39B3B36222D7A7F200EB423F /* GameControlView.swift in Sources */,
 				3975296422D39EFD00EF1A0A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

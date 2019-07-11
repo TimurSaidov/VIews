@@ -13,9 +13,7 @@ class ViewController: UIViewController {
     
     // MARK: Outlets
     
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var stepper: UIStepper!
-    @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var gameControlView: GameControlView!
     @IBOutlet weak var gameFieldView: GameFieldView!
     @IBOutlet weak var scoreLabel: UILabel!
     
@@ -32,14 +30,6 @@ class ViewController: UIViewController {
     
     // MARK: Actions
     
-    @IBAction func stepperChanged(_ sender: UIStepper) {
-        updateUI()
-    }
-    
-    @IBAction func actionButtonTapped(_ sender: UIButton) {
-        isGameActive ? stopGame() : startGame()
-    }
-    
 //            @IBAction func objectTapped(_ sender: UITapGestureRecognizer) { // gameObject - это UIImageView; UITapGestureRecognizer -> gameObject (в Storyboard); @IBAction для TapGestureRecognizer; gameObject -> Attributes Inspector -> User Interaction Enabled = true, иначе пользовательский ввод будет проигнорирован и перенаправлен объектам, расположенным под нажимаемым (пользовательский ввод проигнорирован для всех наследников UIView, кроме UIControl).
 //        guard isGameActive else { return }
 //        repositionImageWithTimer()
@@ -52,7 +42,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupActionButton()
+        setupGameControlView()
         setupGameFieldView()
         updateUI()
     }
@@ -60,8 +50,18 @@ class ViewController: UIViewController {
     
     // MARK: Private
     
-    private func setupActionButton() {
-        actionButton.layer.cornerRadius = 5
+    private func setupGameControlView() {
+        gameControlView.stepper.addTarget(self, action: #selector(stepperChanged), for: .valueChanged)
+        gameControlView.actionButton.layer.cornerRadius = 5
+        gameControlView.actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func stepperChanged() {
+        updateUI()
+    }
+    
+    @objc private func actionButtonTapped() {
+        isGameActive ? stopGame() : startGame()
     }
     
     private func setupGameFieldView() {
@@ -91,7 +91,7 @@ class ViewController: UIViewController {
         RunLoop.current.add(gameTimer, forMode: .common)
         gameTimer.tolerance = 0.1
         self.gameTimer = gameTimer
-        gameTimeLeft = stepper.value
+        gameTimeLeft = gameControlView.stepper.value
         isGameActive = true
         updateUI()
     }
@@ -115,14 +115,14 @@ class ViewController: UIViewController {
     
     private func updateUI() {
         gameFieldView.isShapeHidden = !isGameActive
-        stepper.isEnabled = !isGameActive
+        gameControlView.stepper.isEnabled = !isGameActive
         scoreLabel.isHidden = isGameActive
         if isGameActive {
-            timeLabel.text = "Осталось: \(Int(gameTimeLeft)) сек."
-            actionButton.setTitle("Остановить", for: .normal)
+            gameControlView.timeLabel.text = "Осталось: \(Int(gameTimeLeft)) сек."
+            gameControlView.actionButton.setTitle("Остановить", for: .normal)
         } else {
-            timeLabel.text = "Время: \(Int(stepper.value)) сек."
-            actionButton.setTitle("Начать", for: .normal)
+            gameControlView.timeLabel.text = "Время: \(Int(gameControlView.stepper.value)) сек."
+            gameControlView.actionButton.setTitle("Начать", for: .normal)
         }
     }
     
