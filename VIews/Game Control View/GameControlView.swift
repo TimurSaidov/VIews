@@ -11,14 +11,23 @@ import UIKit
 @IBDesignable
 class GameControlView: UIView {
     
+    
+    // MARK: Outlets
+    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var actionButton: UIButton!
+    
+    
+    // MARK: Lifecycle
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupViews()
     }
+    
+    
+    // MARK: Private
     
     private func setupViews() {
         let xibView = loadViewFromXib()
